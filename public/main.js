@@ -1,5 +1,5 @@
 function createThread() {
-  fetch('https://webapp-ai-game.dwaugh05.workers.dev/', {
+  fetch('https://got-game-api.dwaugh05.workers.dev', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
