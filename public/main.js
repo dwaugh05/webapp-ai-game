@@ -1,5 +1,5 @@
 function createThread() {
-  fetch('got-game-api.dwaugh05.workers.dev', {
+  fetch('https://got-game-api.dwaugh05.workers.dev', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -8,7 +8,12 @@ function createThread() {
       messages: [{role: 'user', content: 'Hello, world!'}]
     })
   })
-  .then(res => res.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
   .then(data => console.log('Thread created:', data))
-  .catch(err => console.error('Error:', err));
+  .catch(error => console.error('Error:', error));
 }
